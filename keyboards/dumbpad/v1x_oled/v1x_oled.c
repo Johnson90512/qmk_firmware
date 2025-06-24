@@ -23,14 +23,14 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) {
         return false;
     }
-    // Right encoder
+    // Comment out this block to stop volume/media keys on encoder rotation
+    /*
     if (index == 0) {
         if (clockwise) {
             tap_code(KC_VOLU);
         } else {
             tap_code(KC_VOLD);
         }
-    // Left encoder
     } else if (index == 1) {
         if (clockwise) {
             tap_code(KC_MNXT);
@@ -38,9 +38,11 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
             tap_code(KC_MPRV);
         }
     }
+    */
     return true;
 }
 #endif
+
 
 #ifdef OLED_ENABLE
 // WPM-responsive animation stuff here
